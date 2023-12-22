@@ -1,6 +1,9 @@
 'use client'
 
+import { DM_Mono } from 'next/font/google'
 import React, { useEffect, useState } from 'react'
+
+const dmMono = DM_Mono({ subsets: ['latin'], weight: '500' })
 
 interface LotteryNumber {
   decimo: string
@@ -147,10 +150,12 @@ const LotteryChecker: React.FC = () => {
                   >
                     ❌
                   </button>
-                  {num.number}
+                  <span className={dmMono.className}>{num.number}</span>
                 </span>
                 <span>
-                  {num.isWinner ? `🏆 - Prize: ${num.prizeInfo}` : '😤 Nope...'}
+                  {num.isWinner
+                    ? `🏆 - Prize: ${num.prizeInfo}`
+                    : '😤 - Nope...'}
                 </span>
               </li>
             ))}
