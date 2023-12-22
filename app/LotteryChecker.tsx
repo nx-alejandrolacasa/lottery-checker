@@ -103,6 +103,14 @@ const LotteryChecker: React.FC = () => {
     addNumber()
   }
 
+  const removeNumber = (numberToRemove: string): void => {
+    const updatedNumbers = userNumbers.filter(
+      (num) => num.number !== numberToRemove
+    )
+    setUserNumbers(updatedNumbers)
+    localStorage.setItem('userNumbers', JSON.stringify(updatedNumbers))
+  }
+
   return (
     <div className='flex flex-col items-center justify-center min-h-screen bg-red-400'>
       <div className='min-w-80 p-6 bg-white shadow-md rounded'>
@@ -128,15 +136,27 @@ const LotteryChecker: React.FC = () => {
           </form>
           <ul>
             {userNumbers.map((num, index) => (
-              <li key={index} className='flex justify-between font-semibold'>
-                <span>{num.number}</span>
-                <span>
-                  {num.isWinner ? `🏆 - Prize: ${num.prizeInfo}` : '❌'}
-                </span>
+              <li
+                key={index}
+                className='flex justify-between font-semibold gap-8'
+              >
+                <div className='grid grid-cols-2 w-full'>
+                  <span>{num.number}</span>
+                  <span>
+                    {num.isWinner ? `🏆 - Prize: ${num.prizeInfo}` : '❌'}
+                  </span>
+                </div>
+                <button onClick={() => removeNumber(num.number)}>🗑️</button>
               </li>
             ))}
           </ul>
-          {lastChecked && <p>Last checked: {lastChecked.toLocaleString()}</p>}
+          <p>
+            {lastChecked ? (
+              <>Last checked: {lastChecked.toLocaleString()}</>
+            ) : (
+              <>Wait for first check...</>
+            )}
+          </p>
         </div>
       </div>
     </div>
