@@ -1,5 +1,5 @@
-import LotteryChecker from '@/app/LotteryChecker'
-import { Snowflakes } from '@/app/Snowflakes'
+import LotteryChecker from '@/components/LotteryChecker'
+import { Snowflakes } from '@/components/Snowflakes'
 
 export default function Home() {
   return (
