@@ -153,9 +153,7 @@ const LotteryChecker: React.FC = () => {
                   <span className={dmMono.className}>{num.number}</span>
                 </span>
                 <span>
-                  {num.isWinner
-                    ? `🏆 - Prize: ${num.prizeInfo}`
-                    : '😤 - Nope...'}
+                  {num.isWinner ? `🏆 Prize: ${num.prizeInfo}` : '😤 Nope...'}
                 </span>
               </li>
             ))}
