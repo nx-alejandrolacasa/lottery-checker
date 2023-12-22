@@ -98,27 +98,34 @@ const LotteryChecker: React.FC = () => {
     setInputNumber(e.target.value)
   }
 
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault()
+    addNumber()
+  }
+
   return (
     <div className='flex flex-col items-center justify-center min-h-screen bg-red-400'>
-      <div className='p-6 bg-white shadow-md rounded'>
+      <div className='min-w-80 p-6 bg-white shadow-md rounded'>
         <h1 className='text-xl font-bold mb-4'>Lottery Number Checker</h1>
         <div className='flex flex-col space-y-4'>
-          <input
-            className='p-2 border border-gray-300 rounded'
-            onChange={handleInputChange}
-            onKeyDown={addNumber}
-            pattern='^[0-9]{1,5}$'
-            placeholder='Enter a number'
-            title='Please enter a number up to 5 digits'
-            type='text'
-            value={inputNumber}
-          />
-          <button
-            onClick={addNumber}
-            className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
-          >
-            Add Number
-          </button>
+          <form onSubmit={handleFormSubmit} className='flex flex-col space-y-4'>
+            <input
+              className='p-2 border border-gray-300 rounded'
+              onChange={handleInputChange}
+              onKeyDown={addNumber}
+              pattern='^[0-9]{1,5}$'
+              placeholder='Enter a number'
+              title='Please enter a number up to 5 digits'
+              type='text'
+              value={inputNumber}
+            />
+            <button
+              type='submit'
+              className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+            >
+              Add Number
+            </button>
+          </form>
           <ul>
             {userNumbers.map((num, index) => (
               <li key={index} className='flex justify-between font-semibold'>
