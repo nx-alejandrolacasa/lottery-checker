@@ -145,12 +145,12 @@ const LotteryChecker: React.FC = () => {
                     className='mr-4'
                     onClick={() => removeNumber(num.number)}
                   >
-                    🗑️
+                    ❌
                   </button>
                   {num.number}
                 </span>
                 <span>
-                  {num.isWinner ? `🏆 - Prize: ${num.prizeInfo}` : '❌'}
+                  {num.isWinner ? `🏆 - Prize: ${num.prizeInfo}` : '😤 Nope...'}
                 </span>
               </li>
             ))}
