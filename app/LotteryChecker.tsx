@@ -145,7 +145,7 @@ const LotteryChecker: React.FC = () => {
               >
                 <span>
                   <button
-                    className='mr-4'
+                    className='mr-4 text-sm'
                     onClick={() => removeNumber(num.number)}
                   >
                     ❌
