@@ -17,7 +17,7 @@ interface UserNumberInfo {
   prizeInfo?: string
 }
 
-const LotteryChecker: React.FC = () => {
+export function LotteryChecker() {
   const [userNumbers, setUserNumbers] = useState<UserNumberInfo[]>(() => {
     if (typeof window !== 'undefined') {
       return JSON.parse(localStorage.getItem('userNumbers') || '[]')
@@ -170,5 +170,3 @@ const LotteryChecker: React.FC = () => {
     </div>
   )
 }
-
-export default LotteryChecker
