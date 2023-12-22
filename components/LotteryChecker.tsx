@@ -133,8 +133,8 @@ export function LotteryChecker() {
               onChange={handleInputChange}
               onKeyDown={addNumber}
               pattern='^[0-9]{1,5}$'
-              placeholder='Enter a number'
-              title='Please enter a number up to 5 digits'
+              placeholder='Introduïu un número'
+              title='Si us plau, introduïu un nombre de fins a 5 dígits'
               type='text'
               value={inputNumber}
             />
