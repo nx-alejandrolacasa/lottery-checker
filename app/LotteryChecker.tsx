@@ -140,13 +140,18 @@ const LotteryChecker: React.FC = () => {
                 key={index}
                 className='flex justify-between font-semibold gap-8'
               >
-                <div className='grid grid-cols-2 w-full'>
-                  <span>{num.number}</span>
-                  <span>
-                    {num.isWinner ? `🏆 - Prize: ${num.prizeInfo}` : '❌'}
-                  </span>
-                </div>
-                <button onClick={() => removeNumber(num.number)}>🗑️</button>
+                <span>
+                  <button
+                    className='mr-4'
+                    onClick={() => removeNumber(num.number)}
+                  >
+                    🗑️
+                  </button>
+                  {num.number}
+                </span>
+                <span>
+                  {num.isWinner ? `🏆 - Prize: ${num.prizeInfo}` : '❌'}
+                </span>
               </li>
             ))}
           </ul>
