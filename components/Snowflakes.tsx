@@ -1,6 +1,6 @@
 'use client'
 
-import {useEffect} from "react";
+import { useEffect } from 'react'
 
 export function Snowflakes() {
   useEffect(() => {
@@ -18,7 +18,7 @@ export function Snowflakes() {
         animation-name: fall;
         animation-timing-function: linear;
     }
- 
+
     @keyframes fall {
       to {
         transform: translateY(100vh);
@@ -26,26 +26,26 @@ export function Snowflakes() {
     }`
 
     function createSnowflake() {
-      const snowflake = document.createElement('div');
-      snowflake.classList.add('snowflake');
-      snowflake.textContent = '❄';
-      snowflake.style.left = Math.random() * 100 + 'vw';
-      snowflake.style.opacity = Math.random().toString();
-      snowflake.style.fontSize = Math.random() * 24 + 10 + 'px';
-      snowflake.style.animationDuration = Math.random() * 9 + 7 + 's'; // Zwischen 2 und 5 Sekunden
+      const snowflake = document.createElement('div')
+      snowflake.classList.add('snowflake')
+      snowflake.textContent = '❄'
+      snowflake.style.left = Math.random() * 100 + 'vw'
+      snowflake.style.opacity = Math.random().toString()
+      snowflake.style.fontSize = Math.random() * 24 + 10 + 'px'
+      snowflake.style.animationDuration = Math.random() * 9 + 7 + 's'
 
-      document.body.appendChild(snowflake);
+      document.body.appendChild(snowflake)
 
       // Entfernt die Schneeflocke nach dem Fallen
       setTimeout(() => {
-        snowflake.remove();
-      // @ts-ignore
-      }, snowflake.style.animationDuration.replace('s', '') * 1000);
+        snowflake.remove()
+        // @ts-ignore
+      }, snowflake.style.animationDuration.replace('s', '') * 1000)
     }
 
     document.body.appendChild(newStyle)
 
-    setInterval(createSnowflake, 250);
+    setInterval(createSnowflake, 250)
   }, [])
 
   return null

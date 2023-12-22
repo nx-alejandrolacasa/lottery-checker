@@ -51,7 +51,13 @@ export function LotteryChecker() {
                 .find((winNum) => winNum.decimo === userNumber)
                 ?.prize.toString()
 
-              return isWinner ? { ...num, isWinner, prizeInfo } : num
+              return isWinner
+                ? {
+                    ...num,
+                    isWinner,
+                    prizeInfo: prizeInfo?.substring(0, prizeInfo.length - 2)
+                  }
+                : num
             })
         )
         setLastChecked(new Date())
@@ -117,7 +123,9 @@ export function LotteryChecker() {
   return (
     <div className='flex flex-col items-center justify-center min-h-screen bg-red-400'>
       <div className='min-w-80 p-6 bg-white shadow-md rounded'>
-        <h1 className='text-xl font-bold mb-4'>Lottery Number Checker</h1>
+        <h1 className='text-xl font-bold mb-4'>
+          T&apos;ha tocat o t&apos;ha fet aire?
+        </h1>
         <div className='flex flex-col space-y-4'>
           <form onSubmit={handleFormSubmit} className='flex flex-col space-y-4'>
             <input
@@ -153,16 +161,18 @@ export function LotteryChecker() {
                   <span className={dmMono.className}>{num.number}</span>
                 </span>
                 <span>
-                  {num.isWinner ? `🏆 Prize: ${num.prizeInfo}` : '😤 Nope...'}
+                  {num.isWinner
+                    ? `🏆 T'han tocat ${num.prizeInfo}€`
+                    : "😤 T'ha fet aire..."}
                 </span>
               </li>
             ))}
           </ul>
           <p>
             {lastChecked ? (
-              <>Last checked: {lastChecked.toLocaleString()}</>
+              <>Última comprovació: {lastChecked.toLocaleString()}</>
             ) : (
-              <>Wait for first check...</>
+              <>Espera la primera comprovació...</>
             )}
           </p>
         </div>
